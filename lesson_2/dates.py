@@ -1,5 +1,6 @@
 from datetime import date
-
+import math
+from datetime import timedelta
 
 raw_date = input("Давай сюда свою дату рождения в формате dd/mm/yyyy \n")
 
@@ -18,7 +19,8 @@ if birth_day.year > date.today().year:
     print("В следующий раз придёшь - принеси мне сувенир из этого своего будущего")
     exit()
 
-age = date.today().year - birth_day.year
+age = math.floor(abs((birth_day - date.today()).days) / 365)
+
 
 if age > 150:
     confirm = input(

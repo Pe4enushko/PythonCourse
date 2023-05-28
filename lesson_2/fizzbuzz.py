@@ -1,6 +1,8 @@
 num = int(input("Число давай \n"))
 
+result = ''
 if num % 3 == 0:
-    print("Fizz")
-elif num % 5 == 0:
-    print("Buzz")
+    result += "Fizz"
+if num % 5 == 0:
+    result += "Buzz"
+print(result)

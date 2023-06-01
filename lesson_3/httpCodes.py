@@ -87,18 +87,11 @@ def server_err(num):
    26: 'Invalid SSL Certificate'}
     return codes[num]
 
-code = input("Кидаю запрос... (код дайте в ответе)")
+def stop():
+    print("Тебе сюда 402")
+    exit()
 
-# Ага, реюз кода из задания про месяцы месяцев uwu
-if not code.isdigit():
-    print("Я буквы не просил, ну лан. Попробую взять цифры из этого...")
-    filtered = num_filter.findall(inp)
-    if len(filtered) > 0:
-        inp = filtered[-1]
-        print(f"Повезло-повезло. Нашлось число {inp}")
-    else:
-        print("Чисел не нашёл. Давай в следующий раз")
-        exit()
+code = input("Кидаю запрос... (код дайте в ответе)")
 
 possible1 = list(range(0, 4))
 possible2 = list(range(0, 9)) + [26]
@@ -106,9 +99,18 @@ possible3 = list(range(0, 9))
 possible4 = list(range(0, 30)) + [31, 49, 51, 99]
 possible5 = list(range(0, 27))
 
+# Да-да эти ваши системы счисления, а ведь оно мне ещё как стркоа нужно
+try:
+    adequateCode = str(int(code,0))
+except:
+    stop()
+
+if len(adequateCode) < 3:
+    stop()
+
 errmsg = "Такого кода не знаю, сорян"
-tail = int(code[1:])
-match int(code[0]):
+tail = int(adequateCode[1:])
+match int(adequateCode[0]):
     case 1:
         print(f"Инфа: {info(tail)}" if tail in possible1 else errmsg)
     case 2:

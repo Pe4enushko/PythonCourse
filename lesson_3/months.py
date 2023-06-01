@@ -1,5 +1,4 @@
 inp = input("С вас месяц ")
-print(int(inp, 0))
 try:
     match int(inp, 0):
         case 1: print("Январь")

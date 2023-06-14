@@ -1,22 +1,17 @@
 import random
 guess = 0
 randnum = random.randint(0,100)
-interrupted = False
+firstRound = True
 
 while guess != randnum:
     try:
-        # Не повторять же постоянно больше или меньше
-        if not interrupted:
+        if not firstRound:
             print(f"Чуть {'меньше' if guess > randnum else 'больше'}")
-        else:
-            interrupted = False
-            
         guess = int(input("Угадаешь? Уверен, что нет. "), 0)
-
+        firstRound = False
     except KeyboardInterrupt as e:
         answer = input("А ты точно ливнуть хочешь? QwQ ").lower()
-        interrupted = True
-        
+       
         if answer == "да":
             exit()
         else:

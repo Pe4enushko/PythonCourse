@@ -1,8 +1,14 @@
+def safe_int_input(text = ""):
+    while True:
+        try:
+            return int(input(text),0)
+        except:
+            print("Неее, мне число надо")        
+        
 
 def get_next_fibonacci(nums = []):
     '''Generates numbers using a nums list. To reset counting - enter a blank list as argument'''
-    
-    # чисел должно быть минимум 2 и всегда 0 и 1 первые
+    # min 2 numbers first two are always 0 and 1
     if len(nums) < 2:
         nums.clear()
         nums.append(0)
@@ -19,11 +25,11 @@ def generate_fibonacci(count):
 
 
 try:
-    count = int(input("Сколько чисел Фиббоначи хотим?"),0)
+    count = safe_int_input("Сколько чисел Фиббоначи хотим?")
     if count > 600:
         confirm = input("\nА может не надо так много? Гляди то и дело питон вылетит O /\\ O \nПовторно введи число, если точно не хочешь менять ").lower()
-    if confirm != str(count):
-        count = int(input("Вот теперь точно назови число. Второй раз останавливать не буду "),0)
+        if confirm != str(count):
+            count = safe_int_input("Вот теперь точно назови число. Второй раз останавливать не буду ")
         
     print(generate_fibonacci(count))
 except KeyboardInterrupt:

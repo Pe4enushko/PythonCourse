@@ -13,6 +13,7 @@ def get_next_fibonacci(nums = []):
         nums.clear()
         nums.append(0)
         nums.append(1)
+        return 0
     res = sum(nums[-2:])
     nums.append(res)
     return res
@@ -25,13 +26,16 @@ def generate_fibonacci(count):
 
 
 try:
-    count = safe_int_input("Сколько чисел Фиббоначи хотим?")
+    count = safe_int_input("Сколько чисел Фиббоначи хотим? ")
     if count > 600:
         confirm = input("\nА может не надо так много? Гляди то и дело питон вылетит O /\\ O \nПовторно введи число, если точно не хочешь менять ").lower()
         if confirm != str(count):
             count = safe_int_input("Вот теперь точно назови число. Второй раз останавливать не буду ")
-        
-    print(generate_fibonacci(count))
+            
+    nums = generate_fibonacci(count)
+    
+    print(f'Числа: {nums}')
+    print(f"Сумма: {sum(nums)}")
 except KeyboardInterrupt:
     print("Ну лан, в следующий раз")
     exit()

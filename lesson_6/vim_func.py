@@ -14,6 +14,6 @@ def get_selected_word_index(txt, cursor_position):
     return left_words_count - 1
     
 # test
-inp = input('Дай мне 3 аргумента через запятую: текст, позицию, кол-во слов')
+inp = input('Дай мне 3 аргумента через запятую: текст, позицию, кол-во слов ')
 args = inp.split(',')
-print(daw(args[0], int(args[1]), int(args[2])))
+print(daw(args[0], int(args[1].strip(),0), int(args[2].strip(),0)))
